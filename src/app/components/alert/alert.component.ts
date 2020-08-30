@@ -28,14 +28,14 @@ import { Component, OnInit } from '@angular/core';
     }`,
 
     `.wrapper { width: 500px; margin: 0 auto; }`,
-    `.alert { transition: transform .3s; } `,
     `.alert-wrapper {
-        min-height: 50px;
         margin: 5px;
         display: flex;
         padding: 10px;
         box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.5);
         position: relative;
+        max-height: 50px;
+        transition: max-height 0.2s ease-in;
     }`,
     `.icon { width: 30px; height: 30px; margin-left: 10px; margin-top: 10px; border-radius: 50%; background: green; }`,
     `.alert-bar { min-height: 50px; min-width: 3px; background: red; display: inline-block; border-radius: 3px; }`,
@@ -52,7 +52,7 @@ import { Component, OnInit } from '@angular/core';
         bottom: 0;
         left: 0;
     }`,
-    `.hide { transform: scaleY(0); } `,
+    `.hide { max-height: 0; transition: max-height 0.2s ease-out; overflow: hidden; margin: 0; padding: 0; } `,
   ]
 })
 
@@ -63,7 +63,7 @@ export class AlertComponent implements OnInit {
   private timerInterval: any;
 
   ngOnInit() {
-    this.alertElement = document.querySelector('div.alert');
+    this.alertElement = document.querySelector('div.alert-wrapper');
     this.timerElement = document.getElementById('alert-timer');
     this.resetTimer();
   }
