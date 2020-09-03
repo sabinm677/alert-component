@@ -1,1 +1,21 @@
-<p>alert works!</p>
+<h1>Angular Toast with timer</h1>
+
+    <div class="wrapper">
+      <div class="alert" (mouseenter)="stopTimer()" (mouseleave)="resetTimer()">
+        <div class="alert-wrapper">
+          <div class="wrapper2">
+            <div class="alert-bar"></div>
+            <div class=""><img class="icon" src="./../../assets/icons/exclamation-circle-solid.svg" alt=""></div>
+          </div>
+
+          <div class="content">
+            <div class="content-title">Here is something you might know</div>
+          </div>
+          <div class="close" (click)="toggleAlert()">&times;</div>
+          <div id="alert-timer"></div>
+        </div>
+      </div>
+    </div>
+    <button (click)="resetTimer()">Load Timer</button>
+    <button (click)="toggleAlert()">Toggle Timer</button>
+    <br>
